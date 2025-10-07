@@ -54,7 +54,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <div className="text-sm text-muted-foreground">Email</div>
-                      <div>contact@example.com</div>
+                      <div>naveen20thkids@gmail.com</div>
                     </div>
                   </div>
 
@@ -64,7 +64,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <div className="text-sm text-muted-foreground">Phone</div>
-                      <div>+1 234 567 890</div>
+                      <div>+91 9443735495</div>
                     </div>
                   </div>
 
@@ -74,7 +74,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <div className="text-sm text-muted-foreground">Location</div>
-                      <div>San Francisco, CA</div>
+                      <div>Chennai, India</div>
                     </div>
                   </div>
                 </div>
@@ -88,14 +88,19 @@ const Contact = () => {
               >
                 <h3 className="text-xl font-bold mb-4">Quick Links</h3>
                 <div className="space-y-2">
-                  <a href="#" className="block text-primary hover:text-secondary transition-colors">
-                    LeetCode Profile
+                  <a 
+                    href="https://linkedin.com/in/naveen-kumar-v-9388b8292" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="block text-primary hover:text-secondary transition-colors"
+                  >
+                    LinkedIn Profile
                   </a>
                   <a href="#" className="block text-primary hover:text-secondary transition-colors">
                     GitHub Repositories
                   </a>
                   <a href="#" className="block text-primary hover:text-secondary transition-colors">
-                    SkillRack Account
+                    LeetCode Profile
                   </a>
                 </div>
               </motion.div>

@@ -27,6 +27,17 @@ const workExperience = [
       "Recognized for effective team management and organizational skills in handling multiple project workflows",
     ],
   },
+  {
+    role: "Frontend Developer Intern",
+    company: "Vibe Coding",
+    location: "Remote",
+    period: "June 2024 – August 2024",
+    achievements: [
+      "Built and deployed responsive web interfaces using React, Vite, and Tailwind CSS",
+      "Collaborated with a team of 5 developers to create an interactive learning portal",
+      "Improved site performance by 30% through optimized bundling and lazy loading",
+    ],
+  },
 ];
 
 const projects = [
