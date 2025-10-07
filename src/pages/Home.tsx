@@ -51,7 +51,7 @@ const Home = () => {
                   size="lg"
                   className="bg-gradient-to-r from-primary to-secondary text-primary-foreground font-semibold glow-primary hover:glow-secondary transition-all duration-300"
                 >
-                  Hire Me
+                  View Profile
                 </Button>
                 <Button
                   size="lg"
