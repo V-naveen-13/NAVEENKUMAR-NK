@@ -2,8 +2,7 @@ import { motion } from "framer-motion";
 import { ParticlesBackground } from "@/components/ParticlesBackground";
 import { Scene3D } from "@/components/Scene3D";
 import { SocialLinks } from "@/components/SocialLinks";
-import { Button } from "@/components/ui/button";
-import { ArrowDown, Download } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import { PageTransition } from "@/components/PageTransition";
 
 const Home = () => {
@@ -22,7 +21,7 @@ const Home = () => {
               className="space-y-6"
             >
               <motion.h1
-                className="text-5xl md:text-7xl font-bold"
+                className="text-6xl md:text-8xl font-bold"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
@@ -41,27 +40,6 @@ const Home = () => {
                 Data Science | AI/ML | Analytics | Building intelligent solutions with data-driven impact
               </motion.p>
 
-              <motion.div
-                className="flex gap-4 flex-wrap"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.6 }}
-              >
-                <Button
-                  size="lg"
-                  className="bg-gradient-to-r from-primary to-secondary text-primary-foreground font-semibold glow-primary hover:glow-secondary transition-all duration-300"
-                >
-                  View Profile
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="glass border-primary/50 hover:bg-primary/10"
-                >
-                  <Download className="mr-2 w-4 h-4" />
-                  Download CV
-                </Button>
-              </motion.div>
             </motion.div>
 
             <motion.div
@@ -134,7 +112,7 @@ const Home = () => {
 
               <div className="grid grid-cols-2 md:grid-cols-3 gap-6 pt-8">
                 {[
-                  { label: "Projects Completed", value: "10+" },
+                  { label: "Projects Completed", value: "65" },
                   { label: "Internships", value: "3" },
                   { label: "Hackathon Wins", value: "1" },
                 ].map((stat, index) => (
