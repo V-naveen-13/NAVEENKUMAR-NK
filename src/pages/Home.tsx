@@ -27,9 +27,9 @@ const Home = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
               >
-                <span className="gradient-text">Creative</span>
+                <span className="gradient-text">NAVEENKUMAR</span>
                 <br />
-                Developer
+                VADIVEL
               </motion.h1>
               
               <motion.p
@@ -38,7 +38,7 @@ const Home = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4 }}
               >
-                Crafting cutting-edge web experiences with modern technologies
+                Data Science | AI/ML | Analytics | Building intelligent solutions with data-driven impact
               </motion.p>
 
               <motion.div
@@ -94,29 +94,49 @@ const Home = () => {
               className="glass p-12 rounded-3xl space-y-8"
             >
               <h2 className="text-4xl md:text-5xl font-bold gradient-text">
-                About Me
+                💼 About Me
               </h2>
               
               <div className="space-y-4 text-lg text-muted-foreground">
                 <p>
-                  I'm a passionate developer specializing in creating immersive web experiences 
-                  that push the boundaries of what's possible on the web.
+                  Hi, I'm <span className="text-primary font-semibold">Naveen Kumar V</span>, a passionate Data Science postgraduate student at Periyar University, Salem (2024–2026) with a strong foundation in Computer Science and hands-on experience in AI, Machine Learning, and Data Analytics.
                 </p>
                 <p>
-                  With expertise in React, Three.js, and modern animation libraries, I bring 
-                  ideas to life through code and creativity.
+                  I specialize in building data-driven solutions and AI-powered applications that combine analytical rigor with real-world impact. My interests span across deep learning, computer vision, NLP, and cloud deployment, with a focus on developing scalable and intelligent systems.
                 </p>
                 <p>
-                  My work combines technical excellence with artistic vision to deliver 
-                  projects that are both functional and visually stunning.
+                  I've worked on projects ranging from AI-based video surveillance and fashion recommender systems to sports analytics and LLM-integrated chatbots, using technologies like TensorFlow, PyTorch, Flask, Streamlit, AWS, and Power BI.
                 </p>
+                <p>
+                  With experience as a Data Analyst Intern and Project Coordinator, I've honed my ability to manage data workflows, coordinate teams, and transform insights into actionable outcomes. I thrive in collaborative environments and love turning raw data into meaningful stories that drive innovation.
+                </p>
+
+                <div className="pt-4 space-y-3">
+                  <h3 className="text-xl font-bold text-primary">⚙️ Tech Stack</h3>
+                  <div className="grid md:grid-cols-2 gap-3 text-base">
+                    <p><span className="font-semibold text-foreground">Languages:</span> Python, R, C++, SQL</p>
+                    <p><span className="font-semibold text-foreground">Frameworks:</span> TensorFlow, PyTorch, Scikit-learn, OpenCV, Flask, Streamlit</p>
+                    <p><span className="font-semibold text-foreground">Data Tools:</span> Power BI, Tableau, Pandas, NumPy, Matplotlib, Seaborn</p>
+                    <p><span className="font-semibold text-foreground">Platforms:</span> AWS (EC2, S3), Airflow, PySpark, Grafana</p>
+                  </div>
+                  <p><span className="font-semibold text-foreground">Areas of Interest:</span> AI/ML, Deep Learning, NLP, Computer Vision, Data Analytics</p>
+                </div>
+
+                <div className="pt-4 space-y-3">
+                  <h3 className="text-xl font-bold text-primary">🧠 AI Highlights</h3>
+                  <ul className="space-y-2 text-base list-disc list-inside">
+                    <li><span className="font-semibold text-foreground">AI Video Surveillance System</span> — Built a real-time monitoring system with a custom deep learning model using ResNet50 and Flask for web deployment.</li>
+                    <li><span className="font-semibold text-foreground">AI Medical Chatbot</span> — Integrated LLMs like GPT and BERT for real-time medical query analysis.</li>
+                    <li><span className="font-semibold text-foreground">Smart India Hackathon 2025 (3rd Place)</span> — Designed scalable AI/ML pipelines for multi-site surveillance data interpretation.</li>
+                  </ul>
+                </div>
               </div>
 
               <div className="grid grid-cols-2 md:grid-cols-3 gap-6 pt-8">
                 {[
-                  { label: "Years Experience", value: "5+" },
-                  { label: "Projects Completed", value: "50+" },
-                  { label: "Happy Clients", value: "30+" },
+                  { label: "Projects Completed", value: "10+" },
+                  { label: "Internships", value: "3" },
+                  { label: "Hackathon Wins", value: "1" },
                 ].map((stat, index) => (
                   <motion.div
                     key={stat.label}
