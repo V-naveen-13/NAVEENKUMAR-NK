@@ -28,7 +28,7 @@ const Contact = () => {
           message: formData.message,
           to_email: 'naveen20thkids@gmail.com',
         },
-        'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key from emailjs.com dashboard
+        'ZoZ1SBPDe8inzgWUQ'
       );
       
       toast.success("Message sent successfully!");
