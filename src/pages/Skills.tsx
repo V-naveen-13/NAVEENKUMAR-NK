@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { PageTransition } from "@/components/PageTransition";
-import { GraduationCap, Briefcase, Code2, Cloud, Brain, Palette, ExternalLink } from "lucide-react";
+import { GraduationCap, Briefcase, Code2, Cloud, Brain, Palette, ExternalLink, Download } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const education = [
   {
@@ -54,6 +55,54 @@ const skillCategories = [
   },
 ];
 
+const technologiesData = [
+  {
+    category: "Programming & Frameworks",
+    skills: [
+      { name: "Python", level: 95 },
+      { name: "R", level: 85 },
+      { name: "C++", level: 80 },
+      { name: "SQL", level: 90 },
+    ],
+  },
+  {
+    category: "ML/DL & AI Techniques",
+    skills: [
+      { name: "TensorFlow", level: 90 },
+      { name: "Scikit-learn", level: 92 },
+      { name: "Neural Networks & CNNs", level: 88 },
+      { name: "Transformers/GPT", level: 85 },
+    ],
+  },
+  {
+    category: "Data Tools & Visualization",
+    skills: [
+      { name: "Power BI/Tableau", level: 90 },
+      { name: "Pandas/NumPy", level: 95 },
+      { name: "Matplotlib/Seaborn", level: 92 },
+      { name: "PySpark/Airflow", level: 85 },
+    ],
+  },
+  {
+    category: "Deployment & Platforms",
+    skills: [
+      { name: "Flask/Streamlit", level: 88 },
+      { name: "AWS EC2/S3", level: 85 },
+      { name: "React/Vite", level: 90 },
+      { name: "Tailwind CSS", level: 92 },
+    ],
+  },
+];
+
+const handleDownloadResume = () => {
+  const link = document.createElement('a');
+  link.href = 'https://drive.google.com/uc?export=download&id=1uNA85LBKJOeLQCEHnpz7jOzsO3faDG9M';
+  link.download = 'Naveen_Kumar_Resume.pdf';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
+
 const Skills = () => {
   return (
     <PageTransition>
@@ -71,17 +120,26 @@ const Skills = () => {
             <p className="text-xl text-muted-foreground mb-6">
               My academic journey, experience, and technical expertise
             </p>
-            <motion.a
-              href="https://docs.google.com/document/d/1VaeAQ4g26PI3mHqKdCUxZ1adEeJW8dy7-53JFcsgMrI/edit?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-secondary rounded-full text-primary-foreground font-semibold hover:shadow-lg hover:shadow-primary/50 transition-all"
-            >
-              View Full Resume
-              <ExternalLink className="w-4 h-4" />
-            </motion.a>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <motion.a
+                href="https://docs.google.com/document/d/1VaeAQ4g26PI3mHqKdCUxZ1adEeJW8dy7-53JFcsgMrI/edit?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-secondary rounded-full text-primary-foreground font-semibold hover:shadow-lg hover:shadow-primary/50 transition-all"
+              >
+                View Full Resume
+                <ExternalLink className="w-4 h-4" />
+              </motion.a>
+              <Button
+                onClick={handleDownloadResume}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-secondary to-accent rounded-full text-primary-foreground font-semibold hover:shadow-lg hover:shadow-secondary/50 transition-all"
+              >
+                Download Resume
+                <Download className="w-4 h-4" />
+              </Button>
+            </div>
           </motion.div>
 
           {/* Education Section */}
@@ -202,6 +260,67 @@ const Skills = () => {
                       {category.level % 10 >= 5 ? "▉" : ""}
                       {"░".repeat(10 - Math.ceil(category.level / 10))}
                     </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.section>
+
+          {/* Technologies I Work With Section */}
+          <motion.section
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="space-y-8"
+          >
+            <h2 className="text-3xl font-bold gradient-text text-center mb-12">
+              Technologies I Work With
+            </h2>
+            <div className="space-y-8">
+              {technologiesData.map((category, categoryIndex) => (
+                <motion.div
+                  key={category.category}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: categoryIndex * 0.15 }}
+                  className="glass p-8 rounded-2xl"
+                >
+                  <h3 className="text-2xl font-bold gradient-text mb-6">
+                    {category.category}
+                  </h3>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {category.skills.map((skill, skillIndex) => (
+                      <motion.div
+                        key={skill.name}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: categoryIndex * 0.1 + skillIndex * 0.05 }}
+                        className="space-y-2"
+                      >
+                        <div className="flex justify-between items-center">
+                          <span className="font-semibold text-foreground">{skill.name}</span>
+                          <span className="text-sm font-bold text-primary">{skill.level}%</span>
+                        </div>
+                        <div className="h-2.5 bg-muted rounded-full overflow-hidden">
+                          <motion.div
+                            initial={{ width: 0 }}
+                            whileInView={{ width: `${skill.level}%` }}
+                            viewport={{ once: true }}
+                            transition={{
+                              duration: 1.2,
+                              delay: categoryIndex * 0.1 + skillIndex * 0.05,
+                              ease: "easeOut",
+                            }}
+                            className="h-full bg-gradient-to-r from-primary via-secondary to-accent rounded-full"
+                            style={{
+                              boxShadow: "0 0 10px hsl(var(--primary) / 0.5)",
+                            }}
+                          />
+                        </div>
+                      </motion.div>
+                    ))}
                   </div>
                 </motion.div>
               ))}
