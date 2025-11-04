@@ -95,12 +95,7 @@ const technologiesData = [
 ];
 
 const handleDownloadResume = () => {
-  const link = document.createElement('a');
-  link.href = 'https://drive.google.com/uc?export=download&id=1uNA85LBKJOeLQCEHnpz7jOzsO3faDG9M';
-  link.download = 'Naveen_Kumar_Resume.pdf';
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+  window.open('https://drive.google.com/uc?export=download&id=1uNA85LBKJOeLQCEHnpz7jOzsO3faDG9M', '_blank');
 };
 
 const Skills = () => {
@@ -120,26 +115,20 @@ const Skills = () => {
             <p className="text-xl text-muted-foreground mb-6">
               My academic journey, experience, and technical expertise
             </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-            <motion.a
-                href="https://drive.google.com/file/d/1uNA85LBKJOeLQCEHnpz7jOzsO3faDG9M/view?usp=drive_link"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-secondary rounded-full text-primary-foreground font-semibold hover:shadow-lg hover:shadow-primary/50 transition-all"
-              >
-                View Full Resume
-                <ExternalLink className="w-4 h-4" />
-              </motion.a>
+            <motion.div 
+              className="flex justify-center"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
               <Button
                 onClick={handleDownloadResume}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-secondary to-accent rounded-full text-primary-foreground font-semibold hover:shadow-lg hover:shadow-secondary/50 transition-all"
+                size="lg"
+                className="inline-flex items-center gap-3 px-8 py-6 bg-gradient-to-r from-primary via-secondary to-accent rounded-full text-primary-foreground font-bold text-lg hover:shadow-2xl hover:shadow-primary/50 transition-all"
               >
                 Download Resume
-                <Download className="w-4 h-4" />
+                <Download className="w-5 h-5" />
               </Button>
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* Education Section */}
