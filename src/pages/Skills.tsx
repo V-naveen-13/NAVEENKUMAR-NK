@@ -153,7 +153,7 @@ const Skills = () => {
               <GraduationCap className="w-8 h-8 text-primary" />
               <h2 className="text-3xl font-bold gradient-text">Education</h2>
             </div>
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-8">
               {education.map((edu, index) => (
                 <motion.div
                   key={edu.degree}
@@ -161,23 +161,48 @@ const Skills = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.2 }}
-                  className="glass p-6 rounded-2xl space-y-3"
+                  whileHover={{ 
+                    y: -8, 
+                    transition: { duration: 0.3 } 
+                  }}
+                  className="relative group"
                 >
-                  <div className="flex justify-between items-start">
-                    <h3 className="text-xl font-bold text-primary">{edu.degree}</h3>
-                    <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                      edu.status === "Pursuing" 
-                        ? "bg-primary/20 text-primary" 
-                        : "bg-secondary/20 text-secondary"
-                    }`}>
-                      {edu.status}
-                    </span>
-                  </div>
-                  <p className="text-lg font-semibold">{edu.institution}</p>
-                  <p className="text-muted-foreground">{edu.field}</p>
-                  <div className="flex justify-between items-center pt-2 border-t border-border/50">
-                    <span className="text-sm text-muted-foreground">{edu.dates}</span>
-                    <span className="text-sm font-bold text-primary">CGPA: {edu.gpa}</span>
+                  {/* 3D Shadow Layers */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl translate-y-2 translate-x-2" />
+                  
+                  {/* Main Card */}
+                  <div className="relative glass p-8 rounded-2xl space-y-4 border border-border/50 shadow-2xl transform transition-all duration-300 group-hover:shadow-primary/25">
+                    {/* Header with Status Badge */}
+                    <div className="flex justify-between items-start gap-4">
+                      <h3 className="text-2xl font-bold gradient-text">{edu.degree}</h3>
+                      <span className={`px-4 py-1.5 rounded-full text-xs font-bold shadow-lg ${
+                        edu.status === "Pursuing" 
+                          ? "bg-gradient-to-r from-primary to-primary/80 text-primary-foreground" 
+                          : "bg-gradient-to-r from-secondary to-secondary/80 text-primary-foreground"
+                      }`}>
+                        {edu.status}
+                      </span>
+                    </div>
+                    
+                    {/* Institution with Icon */}
+                    <div className="flex items-center gap-2">
+                      <div className="w-1 h-6 bg-gradient-to-b from-primary to-secondary rounded-full" />
+                      <p className="text-lg font-bold">{edu.institution}</p>
+                    </div>
+                    
+                    {/* Field of Study */}
+                    <p className="text-base text-muted-foreground font-medium pl-3">{edu.field}</p>
+                    
+                    {/* Footer Stats with 3D Effect */}
+                    <div className="flex justify-between items-center pt-4 mt-4 border-t border-border/50">
+                      <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-muted/50">
+                        <span className="text-sm text-muted-foreground">{edu.dates}</span>
+                      </div>
+                      <div className="px-4 py-2 rounded-lg bg-gradient-to-r from-primary/20 to-secondary/20 border border-primary/30">
+                        <span className="text-sm font-bold gradient-text">CGPA: {edu.gpa}</span>
+                      </div>
+                    </div>
                   </div>
                 </motion.div>
               ))}
