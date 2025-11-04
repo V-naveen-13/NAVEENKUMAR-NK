@@ -239,40 +239,40 @@ const Skills = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="glass p-8 rounded-2xl space-y-6"
+                  whileHover={{ y: -4 }}
+                  className="relative group"
                 >
-                  <div className="flex items-center gap-4">
-                    <div className="p-3 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20">
-                      <category.icon className="w-6 h-6 text-primary" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold">{category.title}</h3>
-                      <p className="text-sm text-muted-foreground mt-1">{category.description}</p>
-                    </div>
-                  </div>
+                  {/* 3D Shadow Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl blur-lg opacity-50 group-hover:opacity-75 transition-opacity duration-300" />
                   
-                  <div className="space-y-3">
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm font-medium">Proficiency</span>
-                      <span className="text-lg font-bold text-primary">{category.level}%</span>
+                  {/* Main Card */}
+                  <div className="relative glass p-8 rounded-2xl space-y-6 border border-border/50">
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex items-center gap-4">
+                        <div className="p-3 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 shadow-lg">
+                          <category.icon className="w-6 h-6 text-primary" />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="text-xl font-bold">{category.title}</h3>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-primary/20 to-secondary/20 border border-primary/30">
+                        <span className="text-2xl font-bold gradient-text">{category.level}%</span>
+                      </div>
                     </div>
-                    <div className="h-3 bg-muted rounded-full overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${category.level}%` }}
-                        viewport={{ once: true }}
-                        transition={{
-                          duration: 1.5,
-                          delay: index * 0.1,
-                          ease: "easeOut",
-                        }}
-                        className="h-full bg-gradient-to-r from-primary via-secondary to-accent rounded-full glow-primary"
-                      />
-                    </div>
-                    <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                      {"█".repeat(Math.floor(category.level / 10))}
-                      {category.level % 10 >= 5 ? "▉" : ""}
-                      {"░".repeat(10 - Math.ceil(category.level / 10))}
+                    
+                    <p className="text-sm text-muted-foreground leading-relaxed">{category.description}</p>
+                    
+                    {/* Skill Tags */}
+                    <div className="flex flex-wrap gap-2 pt-2">
+                      {category.description.split(', ').map((skill, i) => (
+                        <span
+                          key={i}
+                          className="px-3 py-1.5 rounded-full text-xs font-medium bg-muted/50 border border-border/50 hover:border-primary/50 transition-colors"
+                        >
+                          {skill}
+                        </span>
+                      ))}
                     </div>
                   </div>
                 </motion.div>
@@ -290,7 +290,7 @@ const Skills = () => {
             <h2 className="text-3xl font-bold gradient-text text-center mb-12">
               Technologies I Work With
             </h2>
-            <div className="space-y-8">
+            <div className="space-y-6">
               {technologiesData.map((category, categoryIndex) => (
                 <motion.div
                   key={category.category}
@@ -298,43 +298,52 @@ const Skills = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: categoryIndex * 0.15 }}
-                  className="glass p-8 rounded-2xl"
+                  whileHover={{ y: -4 }}
+                  className="relative group"
                 >
-                  <h3 className="text-2xl font-bold gradient-text mb-6">
-                    {category.category}
-                  </h3>
-                  <div className="grid md:grid-cols-2 gap-6">
-                    {category.skills.map((skill, skillIndex) => (
-                      <motion.div
-                        key={skill.name}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: categoryIndex * 0.1 + skillIndex * 0.05 }}
-                        className="space-y-2"
-                      >
-                        <div className="flex justify-between items-center">
-                          <span className="font-semibold text-foreground">{skill.name}</span>
-                          <span className="text-sm font-bold text-primary">{skill.level}%</span>
-                        </div>
-                        <div className="h-2.5 bg-muted rounded-full overflow-hidden">
-                          <motion.div
-                            initial={{ width: 0 }}
-                            whileInView={{ width: `${skill.level}%` }}
-                            viewport={{ once: true }}
-                            transition={{
-                              duration: 1.2,
-                              delay: categoryIndex * 0.1 + skillIndex * 0.05,
-                              ease: "easeOut",
-                            }}
-                            className="h-full bg-gradient-to-r from-primary via-secondary to-accent rounded-full"
-                            style={{
-                              boxShadow: "0 0 10px hsl(var(--primary) / 0.5)",
-                            }}
-                          />
-                        </div>
-                      </motion.div>
-                    ))}
+                  {/* 3D Shadow Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl blur-lg opacity-50 group-hover:opacity-75 transition-opacity duration-300" />
+                  
+                  {/* Main Card */}
+                  <div className="relative glass p-8 rounded-2xl border border-border/50">
+                    <h3 className="text-2xl font-bold gradient-text mb-6 flex items-center gap-3">
+                      <span className="w-1.5 h-8 bg-gradient-to-b from-primary to-secondary rounded-full" />
+                      {category.category}
+                    </h3>
+                    
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                      {category.skills.map((skill, skillIndex) => (
+                        <motion.div
+                          key={skill.name}
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: categoryIndex * 0.1 + skillIndex * 0.05 }}
+                          whileHover={{ scale: 1.05, y: -2 }}
+                          className="relative"
+                        >
+                          {/* Skill Badge */}
+                          <div className="flex flex-col items-center justify-center p-4 rounded-xl bg-gradient-to-br from-muted/50 to-muted/30 border border-border/50 hover:border-primary/50 transition-all group/skill">
+                            <span className="text-sm font-bold text-center mb-2">{skill.name}</span>
+                            <div className="flex items-center gap-1.5">
+                              <div className="flex items-center gap-0.5">
+                                {[...Array(5)].map((_, i) => (
+                                  <div
+                                    key={i}
+                                    className={`w-1.5 h-1.5 rounded-full transition-all ${
+                                      i < Math.floor(skill.level / 20)
+                                        ? 'bg-primary'
+                                        : 'bg-muted-foreground/30'
+                                    }`}
+                                  />
+                                ))}
+                              </div>
+                              <span className="text-xs font-bold text-primary ml-1">{skill.level}%</span>
+                            </div>
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
                   </div>
                 </motion.div>
               ))}
