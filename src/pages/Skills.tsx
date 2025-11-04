@@ -121,8 +121,8 @@ const Skills = () => {
               My academic journey, experience, and technical expertise
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <motion.a
-                href="https://docs.google.com/document/d/1VaeAQ4g26PI3mHqKdCUxZ1adEeJW8dy7-53JFcsgMrI/edit?usp=sharing"
+            <motion.a
+                href="https://drive.google.com/file/d/1uNA85LBKJOeLQCEHnpz7jOzsO3faDG9M/view?usp=drive_link"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
