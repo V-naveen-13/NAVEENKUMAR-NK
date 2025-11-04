@@ -280,17 +280,17 @@ const Skills = () => {
             </div>
           </motion.section>
 
-          {/* Technologies I Work With Section */}
+          {/* Technologies I Work With Section - Mobile Optimized */}
           <motion.section
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="space-y-6 md:space-y-8"
           >
-            <h2 className="text-3xl font-bold gradient-text text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold gradient-text text-center mb-8 md:mb-12 px-4">
               Technologies I Work With
             </h2>
-            <div className="space-y-6">
+            <div className="space-y-4 md:space-y-6">
               {technologiesData.map((category, categoryIndex) => (
                 <motion.div
                   key={category.category}
@@ -301,17 +301,19 @@ const Skills = () => {
                   whileHover={{ y: -4 }}
                   className="relative group"
                 >
-                  {/* 3D Shadow Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl blur-lg opacity-50 group-hover:opacity-75 transition-opacity duration-300" />
+                  {/* 3D Shadow Effect - Subtle on mobile */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-xl md:rounded-2xl blur-lg opacity-50 group-hover:opacity-75 transition-opacity duration-300" />
                   
-                  {/* Main Card */}
-                  <div className="relative glass p-8 rounded-2xl border border-border/50">
-                    <h3 className="text-2xl font-bold gradient-text mb-6 flex items-center gap-3">
-                      <span className="w-1.5 h-8 bg-gradient-to-b from-primary to-secondary rounded-full" />
-                      {category.category}
+                  {/* Main Card - Responsive padding */}
+                  <div className="relative glass p-4 md:p-8 rounded-xl md:rounded-2xl border border-border/50">
+                    {/* Category Header - Mobile optimized */}
+                    <h3 className="text-lg md:text-2xl font-bold gradient-text mb-4 md:mb-6 flex items-center gap-2 md:gap-3">
+                      <span className="w-1 md:w-1.5 h-6 md:h-8 bg-gradient-to-b from-primary to-secondary rounded-full flex-shrink-0" />
+                      <span className="line-clamp-2">{category.category}</span>
                     </h3>
                     
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    {/* Skill Grid - Single column on mobile, full grid on tablet+ */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
                       {category.skills.map((skill, skillIndex) => (
                         <motion.div
                           key={skill.name}
@@ -322,11 +324,15 @@ const Skills = () => {
                           whileHover={{ scale: 1.05, y: -2 }}
                           className="relative"
                         >
-                          {/* Skill Badge */}
-                          <div className="flex flex-col items-center justify-center p-4 rounded-xl bg-gradient-to-br from-muted/50 to-muted/30 border border-border/50 hover:border-primary/50 transition-all group/skill">
-                            <span className="text-sm font-bold text-center mb-2">{skill.name}</span>
-                            <div className="flex items-center gap-1.5">
-                              <div className="flex items-center gap-0.5">
+                          {/* Skill Badge - Enhanced mobile layout */}
+                          <div className="flex items-center justify-between sm:flex-col sm:items-center sm:justify-center p-4 md:p-5 rounded-lg md:rounded-xl bg-gradient-to-br from-muted/50 to-muted/30 border border-border/50 hover:border-primary/50 transition-all group/skill min-h-[60px] sm:min-h-[90px]">
+                            {/* Mobile: Horizontal layout */}
+                            <span className="text-sm md:text-base font-bold sm:text-center sm:mb-2 flex-1 sm:flex-none">{skill.name}</span>
+                            
+                            {/* Rating and percentage - Compact on mobile */}
+                            <div className="flex items-center gap-2 sm:gap-1.5 flex-shrink-0">
+                              {/* Star rating - Hidden on very small screens, shown on sm+ */}
+                              <div className="hidden sm:flex items-center gap-0.5">
                                 {[...Array(5)].map((_, i) => (
                                   <div
                                     key={i}
@@ -338,7 +344,8 @@ const Skills = () => {
                                   />
                                 ))}
                               </div>
-                              <span className="text-xs font-bold text-primary ml-1">{skill.level}%</span>
+                              {/* Percentage - Prominent on mobile */}
+                              <span className="text-sm md:text-base font-bold text-primary">{skill.level}%</span>
                             </div>
                           </div>
                         </motion.div>
