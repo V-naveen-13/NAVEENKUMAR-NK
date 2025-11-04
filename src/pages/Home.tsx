@@ -11,110 +11,148 @@ const Home = () => {
       <div className="min-h-screen relative overflow-hidden">
         <ParticlesBackground />
         
-        {/* Hero Section */}
-        <section className="relative z-10 min-h-screen flex items-center justify-center px-6">
-          <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        {/* Hero Section - Optimized for mobile */}
+        <section className="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6">
+          <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-6 md:gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="space-y-6"
+              className="space-y-4 md:space-y-6 text-center md:text-left"
             >
               <motion.h1
-                className="text-6xl md:text-8xl font-bold"
+                className="text-4xl sm:text-6xl md:text-8xl font-bold tracking-tight"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
               >
-                <span className="gradient-text">NAVEENKUMAR</span>
-                <br />
-                VADIVEL
+                <span className="gradient-text">NAVEEN</span>
+                <br className="hidden sm:block" />
+                <span className="gradient-text sm:hidden">-</span>
+                <span>KUMAR V</span>
               </motion.h1>
               
               <motion.p
-                className="text-xl text-muted-foreground"
+                className="text-lg sm:text-xl text-muted-foreground max-w-[90vw] sm:max-w-none"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4 }}
               >
-                Data Science | AI/ML | Analytics | Building intelligent solutions with data-driven impact
+                Data Science | AI/ML | Analytics | Building intelligent solutions
               </motion.p>
-
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1 }}
-              className="h-[400px] md:h-[600px]"
+              className="h-[300px] sm:h-[400px] md:h-[600px] w-full"
             >
               <Scene3D />
             </motion.div>
           </div>
 
           <motion.div
-            className="absolute bottom-10 left-1/2 -translate-x-1/2"
+            className="absolute bottom-4 sm:bottom-10 left-1/2 -translate-x-1/2"
             animate={{ y: [0, 10, 0] }}
             transition={{ repeat: Infinity, duration: 2 }}
           >
-            <ArrowDown className="w-8 h-8 text-primary" />
+            <ArrowDown className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
           </motion.div>
         </section>
 
-        {/* About Section */}
-        <section className="relative z-10 min-h-screen flex items-center justify-center px-6 py-20">
-          <div className="max-w-4xl mx-auto">
+        {/* About Section - Mobile responsive */}
+        <section className="relative z-10 py-12 sm:py-20 px-4 sm:px-6">
+          <div className="max-w-4xl mx-auto w-full">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="glass p-12 rounded-3xl space-y-8"
+              className="glass p-6 sm:p-12 rounded-2xl sm:rounded-3xl space-y-6 sm:space-y-8"
             >
-              <h2 className="text-4xl md:text-5xl font-bold gradient-text">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold gradient-text">
                 💼 About Me
               </h2>
               
-              <div className="space-y-4 text-lg text-muted-foreground">
-                <p>
-                  Hi, I'm <span className="text-primary font-semibold">Naveen Kumar V</span>, a passionate Data Science postgraduate student at Periyar University, Salem (2024–2026) with a strong foundation in Computer Science and hands-on experience in AI, Machine Learning, and Data Analytics.
-                </p>
-                <p>
-                  I specialize in building data-driven solutions and AI-powered applications that combine analytical rigor with real-world impact. My interests span across deep learning, computer vision, NLP, and cloud deployment, with a focus on developing scalable and intelligent systems.
-                </p>
-                <p>
-                  I've worked on projects ranging from AI-based video surveillance and fashion recommender systems to sports analytics and LLM-integrated chatbots, using technologies like TensorFlow, PyTorch, Flask, Streamlit, AWS, and Power BI.
-                </p>
-                <p>
-                  With experience as a Data Analyst Intern and Project Coordinator, I've honed my ability to manage data workflows, coordinate teams, and transform insights into actionable outcomes. I thrive in collaborative environments and love turning raw data into meaningful stories that drive innovation.
-                </p>
+              <div className="space-y-6 sm:space-y-8 text-base sm:text-lg text-muted-foreground">
+                {/* Introduction */}
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                  className="text-lg sm:text-xl font-medium"
+                >
+                  Hi, I'm Naveen Kumar V — a Data Science enthusiast turning raw data into intelligent systems.
+                </motion.p>
 
-                <div className="pt-4 space-y-3">
-                  <h3 className="text-xl font-bold text-primary">⚙️ Tech Stack</h3>
-                  <div className="grid md:grid-cols-2 gap-3 text-base">
-                    <p><span className="font-semibold text-foreground">Languages:</span> Python, R, C++, SQL</p>
-                    <p><span className="font-semibold text-foreground">Frameworks:</span> TensorFlow, PyTorch, Scikit-learn, OpenCV, Flask, Streamlit</p>
-                    <p><span className="font-semibold text-foreground">Data Tools:</span> Power BI, Tableau, Pandas, NumPy, Matplotlib, Seaborn</p>
-                    <p><span className="font-semibold text-foreground">Platforms:</span> AWS (EC2, S3), Airflow, PySpark, Grafana</p>
+                {/* Main narrative */}
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                >
+                  I build AI-powered solutions that solve real problems. Currently pursuing my postgraduate in Data Science at Periyar University (2024–2026), I've shipped projects in video surveillance, medical AI, and sports analytics using TensorFlow, PyTorch, and AWS. Most recently, my team placed 3rd at Smart India Hackathon 2025 for designing scalable AI/ML pipelines.
+                </motion.p>
+
+                {/* What I Do section */}
+                <div className="space-y-3">
+                  <h3 className="text-lg sm:text-xl font-bold text-primary">What I Do</h3>
+                  <ul className="list-none space-y-2">
+                    <li className="flex items-start">
+                      <span className="text-primary mr-2">•</span>
+                      Design and deploy deep learning models (ResNet50, BERT, GPT integration)
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-primary mr-2">•</span>
+                      Build end-to-end data pipelines with Python, SQL, and cloud platforms
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-primary mr-2">•</span>
+                      Transform complex data into actionable insights using Power BI and Tableau
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Tech Stack - Updated grid layout */}
+                <div className="space-y-3">
+                  <h3 className="text-lg sm:text-xl font-bold text-primary">⚙️ Tech Stack</h3>
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <p className="font-semibold text-foreground">Languages & Core</p>
+                      <p className="text-sm sm:text-base">Python • R • C++ • SQL</p>
+                    </div>
+                    <div className="space-y-2">
+                      <p className="font-semibold text-foreground">ML & AI</p>
+                      <p className="text-sm sm:text-base">TensorFlow • PyTorch • Scikit-learn • OpenCV</p>
+                    </div>
+                    <div className="space-y-2">
+                      <p className="font-semibold text-foreground">Web & API</p>
+                      <p className="text-sm sm:text-base">Flask • Streamlit • FastAPI</p>
+                    </div>
+                    <div className="space-y-2">
+                      <p className="font-semibold text-foreground">Cloud & Tools</p>
+                      <p className="text-sm sm:text-base">AWS • Airflow • Power BI • Tableau</p>
+                    </div>
                   </div>
-                  <p><span className="font-semibold text-foreground">Areas of Interest:</span> AI/ML, Deep Learning, NLP, Computer Vision, Data Analytics</p>
                 </div>
 
                 <div className="pt-4 space-y-3">
-                  <h3 className="text-xl font-bold text-primary">🧠 AI Highlights</h3>
-                  <ul className="space-y-2 text-base list-disc list-inside">
-                    <li><span className="font-semibold text-foreground">AI Video Surveillance System</span> — Built a real-time monitoring system with a custom deep learning model using ResNet50 and Flask for web deployment.</li>
-                    <li><span className="font-semibold text-foreground">AI Medical Chatbot</span> — Integrated LLMs like GPT and BERT for real-time medical query analysis.</li>
-                    <li><span className="font-semibold text-foreground">Smart India Hackathon 2025 (3rd Place)</span> — Designed scalable AI/ML pipelines for multi-site surveillance data interpretation.</li>
+                  <h3 className="text-lg sm:text-xl font-bold text-primary">🧠 AI Highlights</h3>
+                  <ul className="space-y-2 text-sm sm:text-base list-disc list-inside">
+                    {/* ...existing list items... */}
                   </ul>
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-6 pt-8">
+              {/* Stats grid - Mobile optimized */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-6 pt-6 sm:pt-8">
                 {[
-                  { label: "Projects Completed", value: "65" },
+                  { label: "Projects", value: "65" },
                   { label: "Internships", value: "3" },
-                  { label: "Hackathon Wins", value: "1" },
+                  { label: "Hackathons", value: "1" },
                 ].map((stat, index) => (
                   <motion.div
                     key={stat.label}
@@ -122,12 +160,12 @@ const Home = () => {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.2 }}
-                    className="text-center p-6 rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 border border-primary/20"
+                    className="text-center p-3 sm:p-6 rounded-lg sm:rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 border border-primary/20"
                   >
-                    <div className="text-3xl font-bold gradient-text">
+                    <div className="text-2xl sm:text-3xl font-bold gradient-text">
                       {stat.value}
                     </div>
-                    <div className="text-sm text-muted-foreground mt-2">
+                    <div className="text-xs sm:text-sm text-muted-foreground mt-1 sm:mt-2">
                       {stat.label}
                     </div>
                   </motion.div>
@@ -137,10 +175,10 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Social Links */}
-        <section className="relative z-10 py-20 px-6">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <h2 className="text-3xl font-bold gradient-text">Connect With Me</h2>
+        {/* Social Links - Mobile friendly */}
+        <section className="relative z-10 py-12 sm:py-20 px-4 sm:px-6">
+          <div className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8">
+            <h2 className="text-2xl sm:text-3xl font-bold gradient-text">Connect With Me</h2>
             <SocialLinks />
           </div>
         </section>

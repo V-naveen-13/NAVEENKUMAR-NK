@@ -1,200 +1,262 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { PageTransition } from "@/components/PageTransition";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import emailjs from "@emailjs/browser";
+import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, MapPin, Phone } from "lucide-react";
-import { useState } from "react";
 import { toast } from "sonner";
-import emailjs from '@emailjs/browser';
+import { PageTransition } from "@/components/PageTransition";
+import { Mail, Phone, MapPin, Github, Linkedin, Code2 } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 
-const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
+// Form validation schema with resume field
+const contactSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Please enter a valid email"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
+});
+
+type ContactForm = z.infer<typeof contactSchema>;
+
+// EmailJS configuration with public key
+const EMAIL_CONFIG = {
+  SERVICE_ID: "service_3niiuwk",
+  TEMPLATE_ID: "template_5wwhwag",
+  PUBLIC_KEY: "ZoZ1SBPDe8inzgWUQ", // Add your public key here
+  TO_EMAIL: "naveen20thkids@gmail.com",
+  RESUME_LINK: "https://drive.google.com/uc?export=download&id=1uNA85LBKJOeLQCEHnpz7jOzsO3faDG9M"
+} as const;
+
+const contactDetails = [
+  {
+    icon: Mail,
+    label: "Email",
+    value: "naveen20thkids@gmail.com",
+    href: "mailto:naveen20thkids@gmail.com",
+  },
+  {
+    icon: Phone,
+    label: "Phone",
+    value: "+91 9443735495",
+    href: "tel:+919443735495",
+  },
+  {
+    icon: MapPin,
+    label: "Location",
+    value: "Chennai, India",
+    href: "https://maps.google.com/?q=Chennai,India",
+  },
+];
+
+const socialLinks = [
+  {
+    icon: Github,
+    label: "GitHub",
+    href: "https://github.com/naveen1332004",
+  },
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/naveen-kumar-v-9388b8292",
+  },
+  {
+    icon: Code2,
+    label: "LeetCode",
+    href: "#", // Add your LeetCode profile URL when available
+  },
+];
+
+export function ContactInfo() {
+  return (
+    <Card className="w-full">
+      <CardHeader className="text-center">
+        <div className="flex justify-center mb-4">
+          <Avatar className="h-24 w-24">
+            <AvatarImage src="/avatar.jpg" alt="Naveen Kumar V" />
+            <AvatarFallback className="text-2xl">NK</AvatarFallback>
+          </Avatar>
+        </div>
+        <CardTitle className="text-2xl font-bold">Contact Details</CardTitle>
+        <CardDescription>Connect with me</CardDescription>
+      </CardHeader>
+      
+      <CardContent className="space-y-6">
+        <div className="grid gap-4 md:grid-cols-3">
+          {contactDetails.map((contact) => (
+            <motion.a
+              key={contact.label}
+              href={contact.href}
+              target={contact.label === "Location" ? "_blank" : undefined}
+              rel="noopener noreferrer"
+              className="flex items-center p-4 rounded-lg bg-card hover:bg-accent transition-colors"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <contact.icon className="h-5 w-5 mr-3 text-primary" />
+              <div>
+                <div className="font-medium">{contact.label}</div>
+                <div className="text-sm text-muted-foreground">{contact.value}</div>
+              </div>
+            </motion.a>
+          ))}
+        </div>
+
+        <div className="flex justify-center gap-4 pt-4">
+          {socialLinks.map((social) => (
+            <motion.a
+              key={social.label}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-full hover:bg-accent transition-colors"
+              whileHover={{ scale: 1.1 }}
+            >
+              <social.icon className="h-5 w-5 text-primary" />
+            </motion.a>
+          ))}
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
+export default function Contact() {
+  // Initialize EmailJS once
+  useEffect(() => {
+    emailjs.init(EMAIL_CONFIG.PUBLIC_KEY);
+  }, []);
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  const { register, handleSubmit, formState: { errors }, reset } = useForm<ContactForm>({
+    resolver: zodResolver(contactSchema),
   });
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const onSubmit = async (data: ContactForm) => {
+    setIsSubmitting(true);
     
     try {
       await emailjs.send(
-        'service_3niiuwk',
-        'template_5wwhwag',
+        EMAIL_CONFIG.SERVICE_ID,
+        EMAIL_CONFIG.TEMPLATE_ID,
         {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
-          to_email: 'naveen20thkids@gmail.com',
+          from_name: data.name,
+          from_email: data.email,
+          message: data.message,
+          to_email: EMAIL_CONFIG.TO_EMAIL,
+          resume_link: EMAIL_CONFIG.RESUME_LINK // Include resume link in email
         },
-        'ZoZ1SBPDe8inzgWUQ'
+        EMAIL_CONFIG.PUBLIC_KEY
       );
-      
+
       toast.success("Message sent successfully!");
-      setFormData({ name: "", email: "", message: "" });
+      reset();
     } catch (error) {
-      console.error('EmailJS error:', error);
+      console.error("EmailJS error:", error);
       toast.error("Failed to send message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
     }
+  };
+
+  // Handle resume download
+  const handleDownloadResume = () => {
+    window.open(EMAIL_CONFIG.RESUME_LINK, '_blank');
   };
 
   return (
     <PageTransition>
-      <div className="min-h-screen pt-32 pb-20 px-6">
-        <div className="max-w-7xl mx-auto">
+      <div className="min-h-screen pt-32 pb-20 px-4 sm:px-6">
+        <div className="max-w-2xl mx-auto space-y-8">
+          {/* Title Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-16"
+            className="text-center space-y-4"
           >
-            <h1 className="text-5xl md:text-6xl font-bold gradient-text mb-4">
+            <h1 className="text-4xl sm:text-5xl font-bold gradient-text">
               Get In Touch
             </h1>
-            <p className="text-xl text-muted-foreground">
-              Let's create something amazing together
+            <p className="text-lg text-muted-foreground">
+              Have a question or want to work together? Let's talk!
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-12">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2 }}
-              className="space-y-8"
+          {/* Contact Info Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+          >
+            <ContactInfo />
+          </motion.div>
+
+          {/* Existing Contact Form */}
+          <motion.form
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            onSubmit={handleSubmit(onSubmit)}
+            className="space-y-6"
+          >
+            <div className="space-y-2">
+              <Input
+                type="text"
+                placeholder="Your Name"
+                {...register("name")}
+                className={errors.name ? "border-red-500" : ""}
+              />
+              {errors.name && (
+                <p className="text-sm text-red-500">{errors.name.message}</p>
+              )}
+            </div>
+
+            <div className="space-y-2">
+              <Input
+                type="email"
+                placeholder="Your Email"
+                {...register("email")}
+                className={errors.email ? "border-red-500" : ""}
+              />
+              {errors.email && (
+                <p className="text-sm text-red-500">{errors.email.message}</p>
+              )}
+            </div>
+
+            <div className="space-y-2">
+              <Textarea
+                placeholder="Your Message"
+                rows={6}
+                {...register("message")}
+                className={errors.message ? "border-red-500" : ""}
+              />
+              {errors.message && (
+                <p className="text-sm text-red-500">{errors.message.message}</p>
+              )}
+            </div>
+
+            <Button
+              type="submit"
+              className="w-full"
+              disabled={isSubmitting}
             >
-              <div className="glass p-8 rounded-2xl space-y-6">
-                <h2 className="text-2xl font-bold">Contact Information</h2>
-
-                <div className="space-y-4">
-                  <div className="flex items-center gap-4">
-                    <div className="p-3 rounded-xl bg-primary/10">
-                      <Mail className="w-5 h-5 text-primary" />
-                    </div>
-                    <div>
-                      <div className="text-sm text-muted-foreground">Email</div>
-                      <div>naveen20thkids@gmail.com</div>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-4">
-                    <div className="p-3 rounded-xl bg-secondary/10">
-                      <Phone className="w-5 h-5 text-secondary" />
-                    </div>
-                    <div>
-                      <div className="text-sm text-muted-foreground">Phone</div>
-                      <div>+91 9443735495</div>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-4">
-                    <div className="p-3 rounded-xl bg-accent/10">
-                      <MapPin className="w-5 h-5 text-accent" />
-                    </div>
-                    <div>
-                      <div className="text-sm text-muted-foreground">Location</div>
-                      <div>Chennai, India</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className="glass p-8 rounded-2xl"
-              >
-                <h3 className="text-xl font-bold mb-4">Quick Links</h3>
-                <div className="space-y-2">
-                  <a 
-                    href="https://linkedin.com/in/naveen-kumar-v-9388b8292" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="block text-primary hover:text-secondary transition-colors"
-                  >
-                    LinkedIn Profile
-                  </a>
-                  <a href="#" className="block text-primary hover:text-secondary transition-colors">
-                    GitHub Repositories
-                  </a>
-                  <a href="#" className="block text-primary hover:text-secondary transition-colors">
-                    LeetCode Profile
-                  </a>
-                </div>
-              </motion.div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2 }}
-            >
-              <form onSubmit={handleSubmit} className="glass p-8 rounded-2xl space-y-6">
-                <h2 className="text-2xl font-bold">Send a Message</h2>
-
-                <div className="space-y-4">
-                  <div>
-                    <label className="text-sm text-muted-foreground mb-2 block">
-                      Name
-                    </label>
-                    <Input
-                      value={formData.name}
-                      onChange={(e) =>
-                        setFormData({ ...formData, name: e.target.value })
-                      }
-                      className="bg-background/50 border-primary/20 focus:border-primary"
-                      placeholder="Your name"
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <label className="text-sm text-muted-foreground mb-2 block">
-                      Email
-                    </label>
-                    <Input
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) =>
-                        setFormData({ ...formData, email: e.target.value })
-                      }
-                      className="bg-background/50 border-primary/20 focus:border-primary"
-                      placeholder="your@email.com"
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <label className="text-sm text-muted-foreground mb-2 block">
-                      Message
-                    </label>
-                    <Textarea
-                      value={formData.message}
-                      onChange={(e) =>
-                        setFormData({ ...formData, message: e.target.value })
-                      }
-                      className="bg-background/50 border-primary/20 focus:border-primary min-h-[150px]"
-                      placeholder="Your message..."
-                      required
-                    />
-                  </div>
-
-                  <Button
-                    type="submit"
-                    className="w-full bg-gradient-to-r from-primary to-secondary text-primary-foreground font-semibold glow-primary hover:glow-secondary transition-all duration-300"
-                    size="lg"
-                  >
-                    Send Message
-                  </Button>
-                </div>
-              </form>
-            </motion.div>
-          </div>
+              {isSubmitting ? (
+                <>
+                  <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                  Sending...
+                </>
+              ) : (
+                "Send Message"
+              )}
+            </Button>
+          </motion.form>
         </div>
       </div>
     </PageTransition>
   );
-};
-
-export default Contact;
+}
