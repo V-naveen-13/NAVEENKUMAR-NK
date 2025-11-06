@@ -95,7 +95,7 @@ const technologiesData = [
 ];
 
 const handleDownloadResume = () => {
-  window.open('https://drive.google.com/file/d/1uNA85LBKJOeLQCEHnpz7jOzsO3faDG9M/view?usp=sharing', '_blank');
+  window.open('https://drive.google.com/file/d/1EroJfuhupIBMYvQNRMtBaELdE_eC4pGN/view?usp=sharing', '_blank');
 };
 
 const Skills = () => {

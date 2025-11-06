@@ -13,6 +13,14 @@ const NAV_ITEMS = [
   { path: "/contact", label: "Contact" },
 ] as const;
 
+const EMAIL_CONFIG = {
+  SERVICE_ID: "service_3niiuwk",
+  TEMPLATE_ID: "template_5wwhwag",
+  PUBLIC_KEY: "ZoZ1SBPDe8inzgWUQ",
+  TO_EMAIL: "naveen20thkids@gmail.com",
+  RESUME_LINK: "https://drive.google.com/file/d/1EroJfuhupIBMYvQNRMtBaELdE_eC4pGN/view?usp=sharing"
+} as const;
+
 export const Navigation = () => {
   return (
     <motion.nav
@@ -49,7 +57,7 @@ export const Navigation = () => {
             variant="outline"
             size="sm"
             className="ml-2 hidden sm:inline-flex"
-            onClick={() => window.open("https://docs.google.com/document/d/1VaeAQ4g26PI3mHqKdCUxZ1adEeJW8dy7-53JFcsgMrI/edit?usp=sharing", "_blank")}
+            onClick={() => window.open(EMAIL_CONFIG.RESUME_LINK, "_blank")}
           >
             <Download className="w-4 h-4 mr-2" />
             Resume
@@ -83,7 +91,7 @@ export const Navigation = () => {
               <Button
                 variant="outline"
                 className="mt-2"
-                onClick={() => window.open("https://docs.google.com/document/d/1VaeAQ4g26PI3mHqKdCUxZ1adEeJW8dy7-53JFcsgMrI/edit?usp=sharing", "_blank")}
+                onClick={() => window.open(EMAIL_CONFIG.RESUME_LINK, "_blank")}
               >
                 <Download className="w-4 h-4 mr-2" />
                 Resume
