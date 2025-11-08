@@ -25,6 +25,42 @@
   </head>
 
   <body>
+    <!--
+    Windows (PowerShell) SSH + Git quick steps — nano is not available on Windows PowerShell
+
+    1) Create ~/.ssh and open config in Notepad:
+       mkdir $env:USERPROFILE\.ssh -ErrorAction SilentlyContinue
+       notepad $env:USERPROFILE\.ssh\config
+
+       OR write the example config via PowerShell:
+       $cfg = @'
+       Host github.com
+         HostName github.com
+         User git
+         IdentityFile $env:USERPROFILE\.ssh\id_ed25519
+         IdentitiesOnly yes
+         AddKeysToAgent yes
+       '@
+       $cfg | Set-Content -Path "$env:USERPROFILE\.ssh\config" -Encoding utf8
+
+    2) Ensure key exists (generate if needed):
+       ssh-keygen -t ed25519 -C "your-email@example.com" -f $env:USERPROFILE\.ssh\id_ed25519
+
+    3) Start ssh-agent and add key:
+       Start-Service ssh-agent
+       ssh-add $env:USERPROFILE\.ssh\id_ed25519
+
+    4) Test connection:
+       ssh -T git@github.com
+
+    5) Switch repo to SSH remote and push:
+       git remote set-url origin git@github.com:<your-username>/<your-repo>.git
+       git push -u origin main
+
+    Notes:
+    - If Notepad prompts, save with no extension as "config".
+    - Use the GitHub web UI to add the contents of id_ed25519.pub to SSH keys.
+    -->
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
