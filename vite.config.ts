@@ -13,7 +13,4 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  dependencies: {
-    "lovable-tagger": "^1.0.0",
-  },
 }));

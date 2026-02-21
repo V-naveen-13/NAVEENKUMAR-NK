@@ -1,31 +1,40 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin, Twitter, Youtube, Instagram } from "lucide-react";
+import { Github, Linkedin, Code2 } from "lucide-react";
+import { SocialLinks } from "../components/SocialLinks";
+// ...rest of the imports
 
 const socialLinks = [
-  { icon: Github, href: "https://github.com/naveen1332004", label: "GitHub" },
-  { icon: Linkedin, href: "https://www.linkedin.com/in/naveen-kumar-v-9388b8292", label: "LinkedIn" },
-  { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
-  { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
-  { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
+  {
+    icon: Github,
+    label: "GitHub",
+    href: "https://github.com/naveen1332004",
+  },
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/naveen-kumar-v-9388b8292",
+  },
+  {
+    icon: Code2,
+    label: "LeetCode",
+    href: "#",
+  },
 ];
 
 export const SocialLinks = () => {
   return (
-    <div className="flex gap-4 justify-center">
-      {socialLinks.map((social, index) => (
+    <div className="flex items-center justify-center gap-4">
+      {socialLinks.map((social) => (
         <motion.a
           key={social.label}
           href={social.href}
           target="_blank"
           rel="noopener noreferrer"
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: index * 0.1 }}
-          whileHover={{ scale: 1.2, rotate: 5 }}
-          whileTap={{ scale: 0.9 }}
-          className="glass p-4 rounded-xl glow-primary hover:glow-secondary transition-all duration-300"
+          className="p-2 rounded-full hover:bg-accent transition-colors"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
         >
-          <social.icon className="w-6 h-6" />
+          <social.icon className="w-5 h-5 text-primary hover:text-secondary transition-colors" />
         </motion.a>
       ))}
     </div>

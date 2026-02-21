@@ -18,7 +18,7 @@ const EMAIL_CONFIG = {
   TEMPLATE_ID: "template_5wwhwag",
   PUBLIC_KEY: "ZoZ1SBPDe8inzgWUQ",
   TO_EMAIL: "naveen20thkids@gmail.com",
-  RESUME_LINK: "https://drive.google.com/file/d/1EroJfuhupIBMYvQNRMtBaELdE_eC4pGN/view?usp=sharing"
+  RESUME_LINK: "https://drive.google.com/file/d/1EroJfuhupIBMYvQNRMtBaELdE_eC4pGN/view?usp=drive_link"
 } as const;
 
 export const Navigation = () => {

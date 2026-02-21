@@ -27,9 +27,9 @@ type ContactForm = z.infer<typeof contactSchema>;
 const EMAIL_CONFIG = {
   SERVICE_ID: "service_3niiuwk",
   TEMPLATE_ID: "template_5wwhwag",
-  PUBLIC_KEY: "ZoZ1SBPDe8inzgWUQ", // Add your public key here
+  PUBLIC_KEY: "ZoZ1SBPDe8inzgWUQ",
   TO_EMAIL: "naveen20thkids@gmail.com",
-  RESUME_LINK: "https://drive.google.com/uc?export=download&id=1uNA85LBKJOeLQCEHnpz7jOzsO3faDG9M"
+  RESUME_LINK: "https://drive.google.com/file/d/1EroJfuhupIBMYvQNRMtBaELdE_eC4pGN/view?usp=drive_link"
 } as const;
 
 const contactDetails = [
@@ -260,3 +260,23 @@ export default function Contact() {
     </PageTransition>
   );
 }
+
+export const SocialLinks = () => {
+  return (
+    <div className="flex items-center justify-center gap-4">
+      {socialLinks.map((social) => (
+        <motion.a
+          key={social.label}
+          href={social.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="p-2 rounded-full hover:bg-accent transition-colors"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <social.icon className="w-5 h-5 text-primary hover:text-secondary transition-colors" />
+        </motion.a>
+      ))}
+    </div>
+  );
+};
