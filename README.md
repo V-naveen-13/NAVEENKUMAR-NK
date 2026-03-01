@@ -1,67 +1,127 @@
-# Welcome to your naveenkumar project
+# 🌌 Celestial Portals — Personal Portfolio
 
-## Project info
+A space-themed personal portfolio website built with modern web technologies, featuring immersive 3D scenes, particle animations, and smooth page transitions.
 
-**URL**: https://github.com/naveen1332004
+![React](https://img.shields.io/badge/React-19-blue?logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)
+![Vite](https://img.shields.io/badge/Vite-6-purple?logo=vite)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4-38B2AC?logo=tailwindcss)
 
-## How can I edit this code?
+## ✨ Features
 
-There are several ways of editing your application.
+- 🌠 **3D Celestial Scene** — Interactive Three.js-powered 3D space environment
+- 🎆 **Particle Background** — Animated cosmic particle effects
+- 🚀 **Smooth Page Transitions** — Animated transitions between sections
+- 📱 **Fully Responsive** — Optimized for all screen sizes
+- 🎨 **shadcn/ui Components** — Beautiful, accessible UI components
+- 🌐 **Social Links Integration** — Connect with me across platforms
 
-**Use your preferred IDE**
+## 📄 Pages
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+| Page | Description |
+|------|-------------|
+| **Home** | Hero section with 3D scene and introduction |
+| **Projects** | Showcase of my work and projects |
+| **Skills** | Technical skills and expertise |
+| **Contact** | Get in touch with me |
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 🛠️ Tech Stack
 
-Follow these steps:
+- **Framework:** React 19 + TypeScript
+- **Build Tool:** Vite 6
+- **Styling:** Tailwind CSS 4 + shadcn/ui
+- **3D Rendering:** Three.js / React Three Fiber
+- **Animations:** Particle effects + page transitions
+- **Package Manager:** Bun
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 🚀 Getting Started
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### Prerequisites
 
-# Step 3: Install the necessary dependencies.
-npm i
+- [Node.js](https://nodejs.org/) (v18+) or [Bun](https://bun.sh/)
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/naveen1332004/celestial-portals.git
+
+# Navigate to the project directory
+cd celestial-portals/celestial-portals
+
+# Install dependencies
+bun install
+# or
+npm install
+```
+
+### Development
+
+```bash
+# Start the development server
+bun dev
+# or
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Open [http://localhost:5173](http://localhost:5173) in your browser to see the result.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Build
 
-**Use GitHub Codespaces**
+```bash
+# Create a production build
+bun run build
+# or
+npm run build
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Preview
 
-## What technologies are used for this project?
+```bash
+# Preview the production build
+bun run preview
+# or
+npm run preview
+```
 
-This project is built with:
+## 📁 Project Structure
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```
+celestial-portals/
+├── src/
+│   ├── components/
+│   │   ├── Navigation.tsx        # Site navigation
+│   │   ├── Scene3D.tsx           # 3D celestial scene
+│   │   ├── ParticlesBackground.tsx # Particle effects
+│   │   ├── PageTransition.tsx    # Page transition animations
+│   │   ├── SocialLinks.tsx       # Social media links
+│   │   └── ui/                   # shadcn/ui components
+│   ├── pages/
+│   │   ├── Home.tsx              # Landing page
+│   │   ├── Projects.tsx          # Projects showcase
+│   │   ├── Skills.tsx            # Skills display
+│   │   ├── Contact.tsx           # Contact section
+│   │   └── NotFound.tsx          # 404 page
+│   ├── hooks/                    # Custom React hooks
+│   ├── lib/                      # Utility functions
+│   ├── App.tsx                   # Root component
+│   ├── main.tsx                  # Entry point
+│   └── index.css                 # Global styles
+├── index.html
+├── tailwind.config.ts
+├── vite.config.ts
+├── tsconfig.json
+└── package.json
+```
 
-## How can I deploy this project?
+## 📬 Contact
 
-(https://github.com/naveen1332004) and click on Share -> Publish.
+- **GitHub:** [naveen1332004](https://github.com/naveen1332004)
 
-## Can I connect a custom domain to my Lovable project?
+## 📝 License
 
-Yes, you can!
+This project is open source and available under the [MIT License](LICENSE).
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+---
 
-
+> *"The cosmos is within us. We are made of star-stuff."* — Carl Sagan.

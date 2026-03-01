@@ -33,7 +33,7 @@ const skillCategories = [
     icon: Code2,
     title: "Languages & Databases",
     level: 90,
-    description: "Python, R, C++, SQL, PostgreSQL, MongoDB",
+    description: "Python, JavaScript, R, SQL, PostgreSQL, MongoDB",
   },
   {
     icon: Cloud,
@@ -59,10 +59,10 @@ const technologiesData = [
   {
     category: "Programming & Frameworks",
     skills: [
-      { name: "Python", level: 95 },
-      { name: "R", level: 85 },
-      { name: "C++", level: 80 },
-      { name: "SQL", level: 90 },
+      { name: "Python", level: 95,icon: "🐍" },
+      { name: "JavaScript", level: 88,icon: "⚡" },
+      { name: "R", level: 85 ,icon: "📊",},
+      { name: "SQL", level: 90,icon: "🗄️", },
     ],
   },
   {
