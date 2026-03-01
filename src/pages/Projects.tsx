@@ -4,6 +4,17 @@ import { ExternalLink, Github } from "lucide-react";
 
 const workExperience = [
   {
+    role: "SAP BTP & HANA Intern (Data Analyst & Software Development)",
+    company: "Ladera Technology Pvt. Ltd (Offline)",
+    location: "Bengaluru",
+    period: "Dec 2025 – May 2026",
+    achievements: [
+      "Performed data analysis and reporting tasks using SAP BTP and related tools.",
+      "Assisted in building and testing data-driven applications on cloud platforms.",
+      "Analyzed business data to support decision-making and process optimization.",
+    ],
+  },
+  {
     role: "Data Analyst Intern",
     company: "AIU Sports Analytics",
     location: "Salem",

@@ -38,7 +38,7 @@ const Home = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4 }}
               >
-                Data Science | AI/ML | Analytics | Building intelligent solutions
+                Data Science & Analytics| AI/ML | DL & NLP | CV & RAG Systems | End-to-End AI Deployment| 
               </motion.p>
             </motion.div>
 
@@ -69,107 +69,48 @@ const Home = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="glass p-6 sm:p-12 rounded-2xl sm:rounded-3xl space-y-6 sm:space-y-8"
+              className="glass rounded-2xl p-6 sm:p-10 space-y-6"
             >
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold gradient-text">
-                💼 About Me
-              </h2>
+              <h2 className="text-2xl sm:text-3xl font-bold text-primary">💼 About Me</h2>
               
-              <div className="space-y-6 sm:space-y-8 text-base sm:text-lg text-muted-foreground">
-                {/* Introduction */}
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2 }}
-                  className="text-lg sm:text-xl font-medium"
-                >
-                  Hi, I'm Naveen Kumar V — a Data Science enthusiast turning raw data into intelligent systems.
-                </motion.p>
-
-                {/* Main narrative */}
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 }}
-                >
-                  I build AI-powered solutions that solve real problems. Currently pursuing my postgraduate in Data Science at Periyar University (2024–2026), I've shipped projects in video surveillance, medical AI, and sports analytics using TensorFlow, PyTorch, and AWS. Most recently, my team placed 3rd at Smart India Hackathon 2025 for designing scalable AI/ML pipelines.
-                </motion.p>
-
-                {/* What I Do section */}
-                <div className="space-y-3">
-                  <h3 className="text-lg sm:text-xl font-bold text-primary">What I Do</h3>
-                  <ul className="list-none space-y-2">
-                    <li className="flex items-start">
-                      <span className="text-primary mr-2">•</span>
-                      Design and deploy deep learning models (ResNet50, BERT, GPT integration)
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-primary mr-2">•</span>
-                      Build end-to-end data pipelines with Python, SQL, and cloud platforms
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-primary mr-2">•</span>
-                      Transform complex data into actionable insights using Power BI and Tableau
-                    </li>
-                  </ul>
-                </div>
-
-                {/* Tech Stack - Updated grid layout */}
-                <div className="space-y-3">
-                  <h3 className="text-lg sm:text-xl font-bold text-primary">⚙️ Tech Stack</h3>
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <p className="font-semibold text-foreground">Languages & Core</p>
-                      <p className="text-sm sm:text-base">Python • R • C++ • SQL</p>
-                    </div>
-                    <div className="space-y-2">
-                      <p className="font-semibold text-foreground">ML & AI</p>
-                      <p className="text-sm sm:text-base">TensorFlow • PyTorch • Scikit-learn • OpenCV</p>
-                    </div>
-                    <div className="space-y-2">
-                      <p className="font-semibold text-foreground">Web & API</p>
-                      <p className="text-sm sm:text-base">Flask • Streamlit • FastAPI</p>
-                    </div>
-                    <div className="space-y-2">
-                      <p className="font-semibold text-foreground">Cloud & Tools</p>
-                      <p className="text-sm sm:text-base">AWS • Airflow • Power BI • Tableau</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="pt-4 space-y-3">
-                  <h3 className="text-lg sm:text-xl font-bold text-primary">🧠 AI Highlights</h3>
-                  <ul className="space-y-2 text-sm sm:text-base list-disc list-inside">
-                    {/* ...existing list items... */}
-                  </ul>
-                </div>
+              <div className="space-y-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
+                <p>
+                  Hi, I'm <span className="text-foreground font-semibold">Naveen Kumar V</span> — a Data Science engineer in the making.
+                </p>
+                <p>
+                  I design and deploy <span className="text-foreground font-semibold">AI-powered solutions</span> that solve real-world problems at scale. From medical AI models and surveillance intelligence systems to fashion recommendation engines and RAG-based chatbots, I build systems that go beyond notebooks — into <span className="text-primary font-semibold">production</span>.
+                </p>
+                <p>
+                  With expertise in <span className="text-foreground font-semibold">Machine Learning, Deep Learning, and  AWS cloud deployment, SAP BTP</span>, I focus on creating scalable, optimized, and business-ready AI pipelines.
+                </p>
               </div>
 
-              {/* Stats grid - Mobile optimized */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-6 pt-6 sm:pt-8">
-                {[
-                  { label: "Projects", value: "65" },
-                  { label: "Internships", value: "3" },
-                  { label: "Hackathons", value: "1" },
-                ].map((stat, index) => (
-                  <motion.div
-                    key={stat.label}
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.2 }}
-                    className="text-center p-3 sm:p-6 rounded-lg sm:rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 border border-primary/20"
-                  >
-                    <div className="text-2xl sm:text-3xl font-bold gradient-text">
-                      {stat.value}
+              <div className="flex flex-wrap gap-3 pt-2">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium">
+                  🏆 3rd Place – Smart India Hackathon 2025
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium">
+                  📊 Data-driven
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium">
+                  🚀 Scalable
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium">
+                  🎯 Impact-focused
+                </span>
+              </div>
+
+              {/* Tech Stack */}
+              <div className="space-y-3">
+                <h3 className="text-lg sm:text-xl font-bold text-primary">⚙️ Tech Stack</h3>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  {techStack.map((tech) => (
+                    <div key={tech.category} className="space-y-2">
+                      <p className="font-semibold text-foreground">{tech.category}</p>
+                      <p className="text-sm sm:text-base text-muted-foreground">{tech.items}</p>
                     </div>
-                    <div className="text-xs sm:text-sm text-muted-foreground mt-1 sm:mt-2">
-                      {stat.label}
-                    </div>
-                  </motion.div>
-                ))}
+                  ))}
+                </div>
               </div>
             </motion.div>
           </div>
@@ -188,3 +129,12 @@ const Home = () => {
 };
 
 export default Home;
+
+const techStack = [
+  { category: "Languages & Core", items: "Python • R • SQL •Javascript" },
+  { category: "ML & AI", items: "TensorFlow • PyTorch • Scikit-learn • OpenCV" },
+  { category: "Web & API", items: "Flask • Streamlit • FastAPI" },
+  { category: "Data & Visualization", items: "Pandas • NumPy • Matplotlib • Seaborn" },
+  { category: "Power BI & Visualization:", items: " Excel Dashboards • Dashboard Design•Storytelling• MIS Reporting" },
+  { category: "Cloud & Platforms:", items: "SAP BTP • AWS • Airflow • Power BI • Tableau" },
+];

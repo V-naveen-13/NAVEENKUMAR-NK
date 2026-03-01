@@ -22,11 +22,18 @@ const education = [
   },
 ];
 
-const experience = {
-  role: "AI | Cloud | DevOps Engineer",
-  company: "Vibe Coding",
-  focus: "Integrating cutting-edge AI solutions with robust cloud infrastructure and DevOps practices to deliver scalable, high-impact data-driven systems.",
-};
+const experience = [
+  {
+    role: "SAP BTP & HANA Intern (Data Analyst & Software Development)",
+    company: "Ladera Technology Pvt. Ltd (Offline) Bengaluru ",
+    focus: "Performed data analysis and reporting tasks using SAP BTP and related tools. Assisted in building and testing data-driven applications on cloud platforms. Analyzed business data to support decision-making and process optimization.",
+  },
+  {
+    role: "AI | Cloud | DevOps Engineer",
+    company: "Vibe Coding",
+    focus: "Integrating cutting-edge AI solutions with robust cloud infrastructure and DevOps practices to deliver scalable, high-impact data-driven systems.",
+  },
+];
 
 const skillCategories = [
   {
@@ -57,12 +64,23 @@ const skillCategories = [
 
 const technologiesData = [
   {
+    category: "SAP BTP & HANA",
+    skills: [
+      { name: "SAP HANA Database", level: 85 },
+      { name: "SQL (Joins, Views, Stored Procedures)", level: 88 },
+      { name: "Calculation Views", level: 82 },
+      { name: "Data Modeling", level: 85 },
+      { name: "Performance Optimization", level: 80 },
+      { name: "In-Memory DB Concepts", level: 83 },
+    ],
+  },
+  {
     category: "Programming & Frameworks",
     skills: [
-      { name: "Python", level: 95,icon: "🐍" },
-      { name: "JavaScript", level: 88,icon: "⚡" },
-      { name: "R", level: 85 ,icon: "📊",},
-      { name: "SQL", level: 90,icon: "🗄️", },
+      { name: "Python", level: 95, icon: "🐍" },
+      { name: "JavaScript", level: 88, icon: "⚡" },
+      { name: "R", level: 85, icon: "📊" },
+      { name: "SQL", level: 90, icon: "🗄️" },
     ],
   },
   {
@@ -94,8 +112,15 @@ const technologiesData = [
   },
 ];
 
+const languagesCore = [
+  { name: "Python", icon: "🐍", description: "Data Science, ML, Automation" },
+  { name: "R", icon: "📊", description: "Statistical Computing & Visualization" },
+  { name: "C++", icon: "⚡", description: "High-Performance Computing" },
+  { name: "SQL", icon: "🗄️", description: "Database Management & Querying" },
+];
+
 const handleDownloadResume = () => {
-  window.open('https://drive.google.com/file/d/1EroJfuhupIBMYvQNRMtBaELdE_eC4pGN/view?usp=drive_link', '_blank');
+  window.open('https://drive.google.com/file/d/1RWEY_LX4MLf4BCGMr-rh5nzNLfqBKr2M/view?usp=sharing', '_blank');
 };
 
 const Skills = () => {
@@ -209,16 +234,22 @@ const Skills = () => {
               <Briefcase className="w-8 h-8 text-primary" />
               <h2 className="text-3xl font-bold gradient-text">Experience</h2>
             </div>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="glass p-8 rounded-2xl"
-            >
-              <h3 className="text-2xl font-bold gradient-text mb-2">{experience.role}</h3>
-              <p className="text-lg text-primary font-semibold mb-4">{experience.company}</p>
-              <p className="text-muted-foreground leading-relaxed">{experience.focus}</p>
-            </motion.div>
+            <div className="space-y-6">
+              {experience.map((exp, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.2 }}
+                  className="glass p-8 rounded-2xl"
+                >
+                  <h3 className="text-2xl font-bold gradient-text mb-2">{exp.role}</h3>
+                  <p className="text-lg text-primary font-semibold mb-4">{exp.company}</p>
+                  <p className="text-muted-foreground leading-relaxed">{exp.focus}</p>
+                </motion.div>
+              ))}
+            </div>
           </motion.section>
 
           {/* Skills Section */}

@@ -29,7 +29,7 @@ const EMAIL_CONFIG = {
   TEMPLATE_ID: "template_5wwhwag",
   PUBLIC_KEY: "ZoZ1SBPDe8inzgWUQ",
   TO_EMAIL: "naveen20thkids@gmail.com",
-  RESUME_LINK: "https://drive.google.com/file/d/1EroJfuhupIBMYvQNRMtBaELdE_eC4pGN/view?usp=drive_link"
+  RESUME_LINK: "https://drive.google.com/file/d/1RWEY_LX4MLf4BCGMr-rh5nzNLfqBKr2M/view?usp=sharing"
 } as const;
 
 const contactDetails = [
@@ -48,8 +48,8 @@ const contactDetails = [
   {
     icon: MapPin,
     label: "Location",
-    value: "Chennai, India",
-    href: "https://maps.google.com/?q=Chennai,India",
+    value: "Bengaluru, India",
+    href: "https://maps.google.com/?q=Bengaluru,India",
   },
 ];
 
@@ -67,7 +67,7 @@ const socialLinks = [
   {
     icon: Code2,
     label: "LeetCode",
-    href: "#", // Add your LeetCode profile URL when available
+    href: "https://leetcode.com/u/naveen1332004/", // Add your LeetCode profile URL when available
   },
 ];
 
